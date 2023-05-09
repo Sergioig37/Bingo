@@ -1,55 +1,58 @@
 package bingo;
 
-public class Juego {
+import java.util.ArrayList;
 
-	public static String jugar(Carton carton1,Carton carton2,Carton carton3,Carton carton4,Carton carton5){
+public class Juego {
+	
+	private ArrayList<Carton> cartonesJugando;
+
+	
+	public Juego(Carton carton, Carton carton1) {
 		
-		String devolver = "";
+		cartonesJugando = new ArrayList<Carton>();
+		
+		cartonesJugando.add(carton1);
+		cartonesJugando.add(carton);
+		
+	}
+	
+	public void addJugador(Carton carton) {
+		
+		cartonesJugando.add(carton);
+		
+	}
+	
+	
+	public Carton jugar(){
+		
+		Carton ganador = null;
 		
 		boolean hayganador = false;
-		
 		
 		Bombo bingoo = new Bombo();
 		while(!hayganador){
 			
 			int bola = bingoo.pedirNumero();
 			
-			carton1.comprobarNumero(bola);
-			carton2.comprobarNumero(bola);
-			carton3.comprobarNumero(bola);
-			carton4.comprobarNumero(bola);
-			carton5.comprobarNumero(bola);
-			
-			
-			if(carton1.getNumerosCarton().size()==0) {
-				hayganador = true;
-				devolver = "Ha ganado "+carton1.getNombre();
-			}
-			else if(carton2.getNumerosCarton().size()==0) {
-				hayganador = true;
-				devolver = "Ha ganado "+carton2.getNombre();
-			}
-			else if(carton3.getNumerosCarton().size()==0) {
-				hayganador = true;
-				devolver = "Ha ganado "+carton3.getNombre();
-			}
-			else if(carton4.getNumerosCarton().size()==0) {
-				hayganador = true;
-				devolver = "Ha ganado "+carton4.getNombre();
-			}
-			else if(carton5.getNumerosCarton().size()==0) {
-				hayganador = true;
-				devolver = "Ha ganado "+carton5.getNombre();
+			for(Carton carton: cartonesJugando) {
+				
+				carton.comprobarNumero(bola);
+				
+				if(carton.getNumerosCarton().isEmpty()) {
+					hayganador = true;
+					ganador = carton;
+				}
 			}
 			
 			
 		}
 		
-		
-		
-		return devolver;
-		
-		
-		
+		return ganador;
 	}
+
+	public ArrayList<Carton> getCartonesJugando() {
+		return cartonesJugando;
+	}
+	
+	
 }

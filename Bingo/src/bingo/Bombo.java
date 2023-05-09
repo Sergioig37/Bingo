@@ -6,10 +6,12 @@ import java.util.HashSet;
 public class Bombo {
 
 	private ArrayList<Integer> numerosBombo;
+	private ArrayList<Integer> numerosYaSacados;
 	
 	public Bombo(){
 		
 		numerosBombo = new ArrayList<Integer>();
+		numerosYaSacados = new ArrayList<Integer>();
 		
 		for(int i=1;i<91;i++) {
 			
@@ -35,10 +37,24 @@ public class Bombo {
 		else {
 			devolver = numeroAleatorio;
 			int indice = numerosBombo.indexOf(numeroAleatorio);
+			numerosYaSacados.add(numeroAleatorio);
 			numerosBombo.remove(indice);
 		}
 		
+		return devolver;
 		
+	}
+	
+	
+	public String haSalidoYa(int numero) {
+		
+		String devolver = "";
+		
+		if(numerosYaSacados.contains(numero)) {
+			devolver = "El número " +numero +"ya ha salido";
+		}else {
+			devolver = "El número " +numero +"todavía no ha salido";
+		}
 		
 		return devolver;
 		

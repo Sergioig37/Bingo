@@ -11,8 +11,6 @@ public class Start {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-		Bombo bombito = new Bombo();
 		
 		Carton carton1 = new Carton("Pedro");
 		Carton carton2 = new Carton("Mario");
@@ -20,14 +18,34 @@ public class Start {
 		Carton carton4 = new Carton("Rodri");
 		Carton carton5 = new Carton("David");
 		
-		carton1.rellenarCarton();
-		carton2.rellenarCarton();
-		carton3.rellenarCarton();
-		carton4.rellenarCarton();
-		carton5.rellenarCarton();
-
+		Juego bingo = new Juego(carton1, carton2);
+		bingo.addJugador(carton5);
+		bingo.addJugador(carton3);
+		bingo.addJugador(carton4);
+				
+		for(Carton carton: bingo.getCartonesJugando()) {
+			
+			carton.rellenarCarton();
+			
+		}
 		
-		System.out.println(Juego.jugar(carton1, carton2, carton3, carton4, carton5));
+		
+		for(Carton carton: bingo.getCartonesJugando()) {
+			
+			System.out.println(carton);
+			
+		}
+		
+		
+		
+		
+		
+		
+		Carton elganador = bingo.jugar();
+		
+		System.out.println("Ha ganado " +elganador.getNombre());
+		
+		
 		
 		
 		

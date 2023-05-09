@@ -171,6 +171,6 @@ public class Carton {
 		
 		@Override
 		public String toString() {
-			return "Carton [nombre=" + nombre + ", numerosCarton=" + numerosCarton + "]";
+			return "Carton de " + nombre + "[" + numerosCarton + "]";
 		}
 }
