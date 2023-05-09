@@ -19,9 +19,7 @@ public class Carton {
 		
 		if(numerosCarton.contains(numero)){
 			
-			int indice = numerosCarton.indexOf(numero);
-			
-			numerosCarton.remove(indice);
+			numerosCarton.remove(numerosCarton.indexOf(numero));
 			
 		}
 		
@@ -30,122 +28,39 @@ public class Carton {
 
 
 	public void rellenarCarton() {
-		
-		int numero = 0;
-		for(int i=1;i<=9;i++) {
-			
-			switch(i) {
-				case(1): for(int j=0; j<2;j++) {
-					
-						numero=(int)(Math.random()*10)+1;
-						while(numerosCarton.contains(numero)) {
-							numero=(int)(Math.random()*10)+1;
-						
+		for(int i=0;i<=8;i++) {
+			for(int j=0;j<2;j++) {
+				int	numeroSuma = (int)(Math.random()*10)+1;
+				int numeroAdd = 0;
+				if(i==0) {
+				 numeroAdd = numeroSuma;
+				 if(numerosCarton.contains(numeroAdd)) {
+					while(numerosCarton.contains(numeroAdd)) {
+						numeroSuma = (int)(Math.random()*10)+1;
+						numeroAdd = numeroSuma;
 					}
-					numerosCarton.add(numero);
-					
-					}
-				break;
-				case(2): for(int j=0; j<2;j++) {
-					
-					numero=(int)(Math.random()*10)+11;
-						while(numerosCarton.contains(numero)) {
-							numero=(int)(Math.random()*10)+11;
-						
-					}
-					
-						numerosCarton.add(numero);
-					
-					
-					}
-				break;
-				case(3): for(int j=0; j<2;j++) {
-					
-					numero=(int)(Math.random()*10)+21;
-						while(numerosCarton.contains(numero)) {
-							numero=(int)(Math.random()*10)+21;
-						
-					}
-					
-						numerosCarton.add(numero);
-					
-					
-					}
-				break;
-				case(4): for(int j=0; j<2;j++) {
-					numero=(int)(Math.random()*10)+31;
-						while(numerosCarton.contains(numero)) {
-							numero=(int)(Math.random()*10)+31;
-						}
-					
-						numerosCarton.add(numero);
-					
-					
-					}
-				break;
-				case(5): for(int j=0; j<2;j++) {
-					
-					numero=(int)(Math.random()*10)+41;
-						while(numerosCarton.contains(numero)) {
-							numero=(int)(Math.random()*10)+41;
-						
-					}
-						numerosCarton.add(numero);
-					
-					
-					}
-				break;
-				case(6): for(int j=0; j<2;j++) {
-					
-					numero=(int)(Math.random()*10)+51;
-						while(numerosCarton.contains(numero)) {
-							numero=(int)(Math.random()*10)+51;
-						
+				 }
 				}
-						numerosCarton.add(numero);
-					
-					
-					}
-				break;
-				case(7): for(int j=0; j<2;j++) {
-					
-					numero=(int)(Math.random()*10)+61;
-						while(numerosCarton.contains(numero)) {
-							numero=(int)(Math.random()*10)+61;
-						
-					}
-						numerosCarton.add(numero);
-					
-					
-					}
-				break;
-				case(8): for(int j=0; j<2;j++) {
-					numero=(int)(Math.random()*10)+71;
-						while(numerosCarton.contains(numero)) {
-							numero=(int)(Math.random()*10)+71;
-						
+				else {
+					numeroAdd = i*10+numeroSuma;
+					 if(numerosCarton.contains(numeroAdd)) {
+						while(numerosCarton.contains(numeroAdd)) {
+							numeroSuma = (int)(Math.random()*10)+1;
+							numeroAdd = i*10+numeroSuma;
+							}
 				}
-						numerosCarton.add(numero);
-					
-					
-					}
-				break;
-				case(9): for(int j=0; j<2;j++) {
-					
-					numero=(int)(Math.random()*10)+81;
-					while(numerosCarton.contains(numero)) {
-							numero=(int)(Math.random()*10)+81;
-						}
-					
-					numerosCarton.add(numero);
-					
-					
-					}
-				break;
 				
+				}
+				numerosCarton.add(numeroAdd);
 			}
 		}
-		}
+	}
+	
+	public boolean estaVacio() {
+		
+		 return numerosCarton.isEmpty();
+		
+	}
 		
 		
 		public String getNombre() {

@@ -6,21 +6,18 @@ import java.util.HashSet;
 public class Bombo {
 
 	private ArrayList<Integer> numerosBombo;
-	private ArrayList<Integer> numerosYaSacados;
+	
 	
 	public Bombo(){
 		
 		numerosBombo = new ArrayList<Integer>();
-		numerosYaSacados = new ArrayList<Integer>();
+
 		
 		for(int i=1;i<91;i++) {
-			
 			numerosBombo.add(i);
-			
 		}
 		
 	}
-	
 	
 	public int pedirNumero(){
 		
@@ -28,37 +25,21 @@ public class Bombo {
 		
 		int numeroAleatorio = (int)(Math.random()*90)+1;
 		
-		
 		if(!numerosBombo.contains(numeroAleatorio)) {
 			
-			numeroAleatorio = (int)(Math.random()*90)+1;
+			while(!numerosBombo.contains(numeroAleatorio)) {
+				numeroAleatorio = (int)(Math.random()*90)+1;
+			}
+			
 			
 		}
-		else {
 			devolver = numeroAleatorio;
-			int indice = numerosBombo.indexOf(numeroAleatorio);
-			numerosYaSacados.add(numeroAleatorio);
-			numerosBombo.remove(indice);
-		}
+			numerosBombo.remove(numerosBombo.indexOf(numeroAleatorio));
 		
 		return devolver;
 		
 	}
 	
-	
-	public String haSalidoYa(int numero) {
-		
-		String devolver = "";
-		
-		if(numerosYaSacados.contains(numero)) {
-			devolver = "El número " +numero +"ya ha salido";
-		}else {
-			devolver = "El número " +numero +"todavía no ha salido";
-		}
-		
-		return devolver;
-		
-	}
 
 
 	public ArrayList<Integer> getNumerosBombo() {

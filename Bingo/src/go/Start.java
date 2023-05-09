@@ -22,24 +22,24 @@ public class Start {
 		bingo.addJugador(carton5);
 		bingo.addJugador(carton3);
 		bingo.addJugador(carton4);
-				
-		for(Carton carton: bingo.getCartonesJugando()) {
 			
-			carton.rellenarCarton();
-			
-		}
+	
 		
+		
+		for(Carton carton: bingo.getCartonesJugando()) {
+			carton.rellenarCarton();
+		}
+		System.out.println(carton1.getNumerosCarton().size());
+		System.out.println(carton2.getNumerosCarton().size());
+		System.out.println(carton3.getNumerosCarton().size());
+		System.out.println(carton4.getNumerosCarton().size());
+		System.out.println(carton5.getNumerosCarton().size());
 		
 		for(Carton carton: bingo.getCartonesJugando()) {
 			
 			System.out.println(carton);
 			
 		}
-		
-		
-		
-		
-		
 		
 		Carton elganador = bingo.jugar();
 		

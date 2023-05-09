@@ -12,8 +12,7 @@ public class Juego {
 		cartonesJugando = new ArrayList<Carton>();
 		
 		cartonesJugando.add(carton1);
-		cartonesJugando.add(carton);
-		
+		cartonesJugando.add(carton);	
 	}
 	
 	public void addJugador(Carton carton) {
@@ -21,7 +20,6 @@ public class Juego {
 		cartonesJugando.add(carton);
 		
 	}
-	
 	
 	public Carton jugar(){
 		
@@ -38,7 +36,7 @@ public class Juego {
 				
 				carton.comprobarNumero(bola);
 				
-				if(carton.getNumerosCarton().isEmpty()) {
+				if(carton.estaVacio()) {
 					hayganador = true;
 					ganador = carton;
 				}
