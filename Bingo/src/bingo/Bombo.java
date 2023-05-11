@@ -21,21 +21,14 @@ public class Bombo {
 	
 	public int pedirNumero(){
 		
-		int devolver = 0;
 		
-		int numeroAleatorio = (int)(Math.random()*90)+1;
 		
-		if(!numerosBombo.contains(numeroAleatorio)) {
-			
-			while(!numerosBombo.contains(numeroAleatorio)) {
-				numeroAleatorio = (int)(Math.random()*90)+1;
-			}
-			
-			
-		}
-			devolver = numeroAleatorio;
-			numerosBombo.remove(numerosBombo.indexOf(numeroAleatorio));
+		int numeroAleatorio = (int)(Math.random()*numerosBombo.size());
 		
+			int devolver = numerosBombo.get(numeroAleatorio);
+			numerosBombo.remove(numeroAleatorio);
+		
+			
 		return devolver;
 		
 	}
