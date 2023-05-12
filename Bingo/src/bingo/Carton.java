@@ -28,33 +28,28 @@ public class Carton {
 
 
 	public void rellenarCarton() {
+		//arregalo
 		for(int i=0;i<=8;i++) {
+			int	numeroSuma = (int)(Math.random()*10)+1;
 			for(int j=0;j<2;j++) {
-				int	numeroSuma = (int)(Math.random()*10)+1;
-				int numeroAdd = 0;
-				if(i==0) {
-				 numeroAdd = numeroSuma;
-				 if(numerosCarton.contains(numeroAdd)) {
-					while(numerosCarton.contains(numeroAdd)) {
-						numeroSuma = (int)(Math.random()*10)+1;
-						numeroAdd = numeroSuma;
-					}
-				 }
-				}
-				else {
-					numeroAdd = i*10+numeroSuma;
-					 if(numerosCarton.contains(numeroAdd)) {
-						while(numerosCarton.contains(numeroAdd)) {
+					if(i==0) {
+						while(numerosCarton.contains(numeroSuma)) {
 							numeroSuma = (int)(Math.random()*10)+1;
-							numeroAdd = i*10+numeroSuma;
+						}
+					}
+					else if(i>0) {
+						if(numerosCarton.contains(numeroSuma)) {
+							while(numerosCarton.contains(numeroSuma)) {
+								numeroSuma = (int)(Math.random()*10)+1;
+								numeroSuma = i*10+numeroSuma;
 							}
+					 }
+					}
+					numerosCarton.add(numeroSuma);
 				}
 				
-				}
-				numerosCarton.add(numeroAdd);
 			}
 		}
-	}
 	
 	public boolean estaVacio() {
 		

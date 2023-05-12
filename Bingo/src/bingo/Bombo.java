@@ -21,12 +21,10 @@ public class Bombo {
 	
 	public int pedirNumero(){
 		
-		
-		
 		int numeroAleatorio = (int)(Math.random()*numerosBombo.size());
 		
-			int devolver = numerosBombo.get(numeroAleatorio);
-			numerosBombo.remove(numeroAleatorio);
+		int devolver = numerosBombo.get(numeroAleatorio);
+		numerosBombo.remove(numeroAleatorio);
 		
 			
 		return devolver;
