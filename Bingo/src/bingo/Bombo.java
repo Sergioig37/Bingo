@@ -25,8 +25,8 @@ public class Bombo {
 		
 		int devolver = numerosBombo.get(numeroAleatorio);
 		numerosBombo.remove(numeroAleatorio);
+	
 		
-			
 		return devolver;
 		
 	}
